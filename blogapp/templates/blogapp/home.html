@@ -48,8 +48,10 @@
       <div class="article-card">
         <div class="article-card-container">
           <div class="article-card-content">
-            <h2 class="article-text">{{post.title}}</h2>
-            <h3 class="article-text">{{post.post | safe}}</h3>
+            <div class="hidden-text">
+              <h2>{{post.title}}</h2>
+              <h3>{{post.post | safe}}</h3>
+            </div>
             <a href="{% url 'post-details' post.id %}">
               <div class="button">Learn more</div></a
             >
