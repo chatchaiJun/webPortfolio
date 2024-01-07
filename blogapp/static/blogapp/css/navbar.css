@@ -1,0 +1,130 @@
+/* Global */
+
+h2 {
+  color: #000;
+
+  /* H2 */
+  font-family: Inria Sans;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 105%; /* 35.7px */
+}
+body {
+  background: #f1f1f1;
+}
+h1 {
+  color: #000;
+  /* text-align: center; */
+
+  /* H1-Bold */
+  font-family: Inria Sans;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 105%; /* 46.2px */
+}
+h3 {
+  color: #000;
+
+  /* H3 */
+  font-family: Inria Sans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 105%; /* 25.2px */
+}
+p {
+  color: #000;
+  /* p blog body text */
+  font-family: Inria Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; /* 25.2px */
+  letter-spacing: -0.36px;
+}
+body {
+  margin: 0;
+}
+.button {
+  margin: 0;
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: #000;
+  color: white;
+}
+.button:hover {
+  border-radius: 8px;
+  background: #636060;
+}
+a {
+  text-decoration: none;
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  /* width: 1440px;*/
+  height: 78px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  background: #fff;
+}
+.header {
+  display: flex;
+  width: 1152px;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  width: 184px;
+  height: 60px;
+  padding: 13px 7px 0px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-text {
+  color: #000;
+  font-family: Inter;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.menu-items {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.menu-item {
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.text-menu {
+  color: rgba(0, 0, 0, 0.5);
+
+  /* Font-size */
+  font-family: Inria Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+a.text-menu:link {
+  color: rgba(0, 0, 0, 0.5);
+}
+.text-menu:hover {
+  color: #000;
+}

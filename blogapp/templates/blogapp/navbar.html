@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blogapp/css/navbar.css' %}"
+    />
+    {% block title %} {% endblock %} {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="header">
+        <a href="{% url 'home'%}">
+          <div class="logo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+            >
+              <circle cx="13" cy="13" r="13" fill="black" />
+            </svg>
+            <p class="logo-text">MAKAPI</p>
+          </div></a
+        >
+        <div class="menu-items">
+          <div class="menu-item">
+            <a href="#"><p class="text-menu">Project</p> </a>
+          </div>
+          <div class="menu-item">
+            <a href="{%url 'article'%}"> <p class="text-menu">Article</p></a>
+          </div>
+          <div class="menu-item">
+            <a href="#"><p class="text-menu">Certificate</p></a>
+          </div>
+          <div class="menu-item">
+            <a href="#"><p class="text-menu">Design</p></a>
+          </div>
+          <div class="menu-item">
+            <a href="{% url 'about'%}"> <p class="button">About Me</p></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block content %} {% endblock%}
+  </body>
+  {%block scripts%} {%endblock%} {% comment %}
+  <script src="{% static 'blogapp/js/script.js' %}"></script>
+  {% endcomment %}
+</html>

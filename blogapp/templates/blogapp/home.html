@@ -1,0 +1,71 @@
+{% extends "blogapp/navbar.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>MAKAPI-Homepage</title>
+    {% endblock%} {% block extra_css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blogapp/css/homepage.css' %}"
+    />
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %} {% comment %} Title area {% endcomment %}
+    <section class="title">
+      <div class="title-area">
+        <div class="title-area-container">
+          <div class="title-content">
+            <div class="title-area-texts">
+              <p class="title-header">Hello, My name is Chatchai Ju. (Gun)</p>
+              <p class="title-sub-header">
+                This is my website portfolio, It contains all of my work,
+                research, amd so on. Please check it out, and don’t forget to
+                hire me if you are interesting.
+              </p>
+              <div class="button">HIRE ME</div>
+            </div>
+            <div class="icon-area"></div>
+          </div>
+          <img
+            src="{% static 'blogapp/images/profile.jpg' %}"
+            class="title-image"
+            alt="profile"
+          />
+        </div>
+      </div>
+    </section>
+    {% comment %} Article area {% endcomment %}
+    <section class="article">
+      <div class="article-title">
+        <h1>ARTICLE</h1>
+      </div>
+      {% for post in posts %}
+      <div class="article-card">
+        <div class="article-card-container">
+          <div class="article-card-content">
+            <h2 class="article-text">{{post.title}}</h2>
+            <h3 class="article-text">{{post.post | safe}}</h3>
+            <a href="{% url 'post-details' post.id %}">
+              <div class="button">Learn more</div></a
+            >
+          </div>
+          <img
+            src="{{post.featured_pic.url}}"
+            class="article_img_container"
+            alt="post.title"
+          />
+        </div>
+      </div>
+      {%endfor %}
+    </section>
+    {% endblock%}
+  </body>
+  {%block scripts%}
+  <script src="{% static 'blogapp/js/script.js' %}"></script>
+  {%endblock%}
+</html>

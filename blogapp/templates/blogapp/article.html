@@ -1,0 +1,52 @@
+{% extends "blogapp/navbar.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>MAKAPI-article</title>
+    {% endblock%} {% block extra_css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blogapp/css/article.css' %}"
+    />
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %}
+    <article class="search-bar">
+      <div class="article-search-bar">
+        <input type="text" class="article-input" placeholder="Search.." />
+      </div>
+    </article>
+    <article class="artcles">
+      <div class="article-list-container">
+        <div class="article-list">
+          {% for post in posts %}
+          <a href="{% url  'post-details' post.id %}">
+            <div class="article-preview">
+              <img
+                src="{{post.featured_pic.url}}"
+                class="article-img-preivew"
+                alt="post.title"
+              />
+              <div class="article-preview-text">
+                <div class="category-container">
+                  <p class="tagline">CATEGORY : {{post.category}}</p>
+                </div>
+                <h3 class='article-preivew-title'>{{post.title}}</h3>
+              </div>
+            </div>
+          </a>
+          {%endfor %}
+        </div>
+      </div>
+    </article>
+    {% endblock%}
+  </body>
+  {%block scripts%}
+  <script src="{% static 'blogapp/js/script.js' %}"></script>
+  {%endblock%}
+</html>
