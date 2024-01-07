@@ -14,13 +14,13 @@ Welcome to my portfolio project! This project showcases my work and achievements
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-portfolio.git
+   git clone https://github.com/chatchaiJun/webPortfolio.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd your-portfolio
+   cd webPortfolio
    ```
 
 3. Create a virtual environment:
