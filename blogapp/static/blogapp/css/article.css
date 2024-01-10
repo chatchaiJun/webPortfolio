@@ -85,7 +85,7 @@
   align-self: stretch;
   background-color: rgba(255, 255, 255, 1);
 }
-.article-preivew-title {
+.article-preview-title {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* Adjust the number of lines to show */

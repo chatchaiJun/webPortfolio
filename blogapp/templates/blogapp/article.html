@@ -18,10 +18,16 @@
     {% block content %}
     <article class="search-bar">
       <div class="article-search-bar">
-        <input type="text" class="article-input" placeholder="Search.." />
+        <input
+          type="text"
+          class="article-input"
+          onkeyup="searchFunction()"
+          id="search"
+          placeholder="Search.."
+        />
       </div>
     </article>
-    <article class="artcles">
+    <article class="articles">
       <div class="article-list-container">
         <div class="article-list">
           {% for post in posts %}
@@ -30,23 +36,25 @@
               <img
                 src="{{post.featured_pic.url}}"
                 class="article-img-preivew"
-                alt="post.title"
+                alt="{{post.title}}"
               />
               <div class="article-preview-text">
                 <div class="category-container">
                   <p class="tagline">CATEGORY : {{post.category}}</p>
                 </div>
-                <h3 class='article-preivew-title'>{{post.title}}</h3>
+                <h3 class="article-preview-title">{{post.title}}</h3>
               </div>
             </div>
           </a>
           {%endfor %}
         </div>
+        <h2 id="no-results-msg" style="display: none">No articles found.</h2>
       </div>
     </article>
     {% endblock%}
   </body>
   {%block scripts%}
+
   <script src="{% static 'blogapp/js/script.js' %}"></script>
   {%endblock%}
 </html>

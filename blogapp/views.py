@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Blog
 from bs4 import BeautifulSoup
+from django.db.models import Q
 
 # Create your views here.
 def style_remove(request,post):
@@ -9,9 +10,14 @@ def style_remove(request,post):
     soup = BeautifulSoup(post, 'html.parser')
     
     # Remove inline styles from all elements
-    for span_tag in soup.find_all('span'):
-        if 'style' in span_tag.attrs:
-            del span_tag['style']
+    for tag in soup.find_all(['span', 'img']):
+        if 'style' in tag.attrs:
+            if tag.name == 'span':
+                # If the tag is a span, remove the style attribute
+                del tag['style']
+            elif tag.name == 'img':
+                # If the tag is an img, update the style attribute to set width to 100%
+                tag['style'] = 'width: 100%;'
 
 
     # Get the modified HTML content
@@ -31,8 +37,8 @@ def about(request):
 
 def post_details(request,id):
     single_post = Blog.objects.get(pk=id)
-    # post_detail = style_remove(request,single_post.post)
-    # single_post.post = post_detail
+    post_detail = style_remove(request,single_post.post)
+    single_post.post = post_detail
     return render(request,'blogapp/post-details.html',{'post':single_post}) 
 
 def article(request):
