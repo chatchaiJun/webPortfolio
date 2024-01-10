@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Blog
 from bs4 import BeautifulSoup
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def style_remove(request,post):
@@ -43,4 +44,12 @@ def post_details(request,id):
 
 def article(request):
     posts = Blog.objects.all()
+    paginator = Paginator(posts,10)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
     return render(request,'blogapp/article.html',{'posts':posts})

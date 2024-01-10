@@ -13,14 +13,7 @@ specialtyCards.forEach((card, index) => {
     container.insertBefore(img, content);
   }
 });
-// document.addEventListener("DOMContentLoaded", function () {
-//   var spans = document.querySelectorAll("span");
 
-//   spans.forEach(function (span) {
-//     console.log(span);
-//     span.removeAttribute("style");
-//   });
-// });
 function searchFunction() {
   let input, filter, articles, preview, title, i, txtValue;
   input = document.getElementById("search");
