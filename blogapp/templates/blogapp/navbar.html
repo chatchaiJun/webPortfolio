@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    {% block content %} {% endblock%}
+    {% block content %} {% endblock%} {% include "blogapp/footer.html" %}
   </body>
   {%block scripts%} {%endblock%} {% comment %}
   <script src="{% static 'blogapp/js/script.js' %}"></script>
