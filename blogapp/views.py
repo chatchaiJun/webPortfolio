@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Blog
+from .models import Blog,Project
 from bs4 import BeautifulSoup
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -52,4 +52,8 @@ def article(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request,'blogapp/article.html',{'posts':posts})
+    return render(request,'blogapp/article.html',{'posts':posts,'tag':'article'})
+
+def project(request):
+    projects = Project.objects.all()
+    return render(request,'blogapp/article.html',{'projects':projects,'tag':'project'})

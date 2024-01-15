@@ -31,7 +31,7 @@
     <article class="articles">
       <div class="article-list-container">
         <div class="article-list">
-          {% for post in posts %}
+          {% if tag == 'article' %} {% for post in posts %}
           <a href="{% url  'post-details' post.id %}">
             <div class="article-preview">
               <img
@@ -47,7 +47,25 @@
               </div>
             </div>
           </a>
-          {%endfor %}
+          {%endfor %} {% endif %} {% if tag == 'project' %} 
+          {% for project in projects%}
+          <a>
+          {% comment %} <a href="{% url  'post-details' post.id %}"> {% endcomment %}
+            <div class="article-preview">
+              <img
+                src="{{project.project_cover.url}}"
+                class="article-img-preivew"
+                alt="{{project.title}}"
+              />
+              {% comment %} <div class="article-preview-text">
+                <div class="category-container">
+                  <p class="tagline">CATEGORY : {{post.category}}</p>
+                </div>
+                <h3 class="article-preview-title">{{post.title}}</h3>
+              </div> {% endcomment %}
+            </div>
+          </a>
+          {%endfor %} {% endif %}
         </div>
         <h2 id="no-results-msg" style="display: none">No articles found.</h2>
 

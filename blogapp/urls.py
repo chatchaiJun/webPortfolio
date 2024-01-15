@@ -9,5 +9,6 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('about',views.about,name='about'),
     path('article',views.article,name='article'),
+    path('project',views.project,name='project'),
     path('article/post-details/<int:id>',views.post_details,name='post-details')
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
