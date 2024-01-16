@@ -16,6 +16,8 @@ class Blog(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=255)
     project_cover = models.ImageField(upload_to='project_pictures',blank=True)
+    link_demo = models.CharField(max_length=255,blank=True)
+    link_code = models.CharField(max_length=255,blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 

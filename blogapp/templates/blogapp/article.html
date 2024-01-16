@@ -49,22 +49,55 @@
           </a>
           {%endfor %} {% endif %} {% if tag == 'project' %} 
           {% for project in projects%}
-          <a>
-          {% comment %} <a href="{% url  'post-details' post.id %}"> {% endcomment %}
-            <div class="article-preview">
-              <img
-                src="{{project.project_cover.url}}"
-                class="article-img-preivew"
-                alt="{{project.title}}"
-              />
-              {% comment %} <div class="article-preview-text">
-                <div class="category-container">
-                  <p class="tagline">CATEGORY : {{post.category}}</p>
-                </div>
-                <h3 class="article-preview-title">{{post.title}}</h3>
-              </div> {% endcomment %}
+
+          <div class="article-preview">
+            <img
+              src="{{project.project_cover.url}}"
+              class="article-img-preivew"
+              alt="{{project.title}}"
+              onclick="openImageSlider('{{ project.title }}', '{{ project.id }}')"
+            />
+            <div class="article-preview-text">
+              {% comment %}
+              <div class="category-container">
+                <p class="tagline">CATEGORY : {{post.category}}</p>
+              </div>
+              {% endcomment %}
+              <h3 class="article-preview-title">{{project.title}}</h3>
+              <div class="icon-area" style="justify-content: space-evenly">
+                <a href="{{project.link_code}}">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="35"
+                    height="35"
+                    viewBox="0 0 47 45"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M23.0691 0C10.3234 0 0 10.3234 0 23.0691C0 33.2772 6.60353 41.8993 15.7735 44.9559C16.927 45.1578 17.3595 44.4657 17.3595 43.8601C17.3595 43.3123 17.3307 41.4956 17.3307 39.5635C11.5346 40.6305 10.0351 38.1505 9.57368 36.8529C9.31415 36.1897 8.18953 34.1423 7.2091 33.5944C6.40168 33.1618 5.24822 32.0949 7.18026 32.0661C8.99695 32.0372 10.2946 33.7386 10.7271 34.4306C12.8034 37.9198 16.1195 36.9394 17.446 36.3338C17.6479 34.8344 18.2534 33.8251 18.9167 33.2484C13.7838 32.6716 8.42023 30.6819 8.42023 21.858C8.42023 19.3492 9.31415 17.273 10.7848 15.6582C10.5541 15.0814 9.7467 12.7168 11.0155 9.54484C11.0155 9.54484 12.9475 8.93928 17.3595 11.9094C19.205 11.3904 21.1659 11.1308 23.1268 11.1308C25.0877 11.1308 27.0485 11.3904 28.8941 11.9094C33.306 8.91044 35.2381 9.54484 35.2381 9.54484C36.5069 12.7168 35.6995 15.0814 35.4688 15.6582C36.9394 17.273 37.8333 19.3204 37.8333 21.858C37.8333 30.7108 32.4409 32.6716 27.3081 33.2484C28.1443 33.9693 28.8652 35.3534 28.8652 37.5161C28.8652 40.6016 28.8364 43.0816 28.8364 43.8601C28.8364 44.4657 29.2689 45.1866 30.4224 44.9559C35.002 43.4099 38.9816 40.4667 41.8008 36.5403C44.6201 32.6141 46.1371 27.9027 46.1382 23.0691C46.1382 10.3234 35.8148 0 23.0691 0Z"
+                      fill="black"
+                    />
+                  </svg>
+                </a>
+                <a href="{{project.link_demo}}">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="35"
+                    height="35"
+                    class="bi bi-arrow-up-right-square"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
-          </a>
+          </div>
           {%endfor %} {% endif %}
         </div>
         <h2 id="no-results-msg" style="display: none">No articles found.</h2>
@@ -99,11 +132,23 @@
           {% endif%}
         </ul>
       </div>
+      <div id="imageSliderModal" class="modal" hidden>
+        <span class="close" onclick="closeImageSlider()">&times;</span>
+        <div class="slider-center">
+          <div id="imageSliderContainer" class="image-slider" onclick="closeImageSlider()">
+            <div class="slider-item">
+        </div>
+          </div>
+        </div>
+         <button id="prevBtn" class="slider-nav-btn">&#10094;</button>
+        <button id="nextBtn" class="slider-nav-btn">&#10095;</button>
+      </div>
     </article>
     {% endblock%}
   </body>
   {%block scripts%}
 
   <script src="{% static 'blogapp/js/script.js' %}"></script>
+  <script src="{% static 'blogapp/js/slider.js' %}"></script>
   {%endblock%}
 </html>

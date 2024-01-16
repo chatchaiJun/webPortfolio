@@ -4,6 +4,7 @@ from .models import Blog,Project
 from bs4 import BeautifulSoup
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse
 
 # Create your views here.
 def style_remove(request,post):
@@ -57,3 +58,12 @@ def article(request):
 def project(request):
     projects = Project.objects.all()
     return render(request,'blogapp/article.html',{'projects':projects,'tag':'project'})
+
+
+def get_project_pictures(request, project_id):
+    project = Project.objects.get(id=project_id)
+    pictures = project.pictures.all()
+
+    picture_data = [{'image_url': picture.image.url, 'description': picture.description} for picture in pictures]
+
+    return JsonResponse({'pictures': picture_data})
