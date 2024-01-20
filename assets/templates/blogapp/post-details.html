@@ -1,0 +1,67 @@
+{% extends "blogapp/navbar.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>MAKAPI-Homepage</title>
+    {% endblock%} {% block extra_css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blogapp/css/post-detail.css' %}"
+    />
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %} {% if post %}
+    <div class="article-section">
+      <div class="article-container">
+        <div class="article-date">
+          <a href="{% url  'article' %}">
+            <div class="arrow-icon-left">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="11"
+                viewBox="0 0 18 11"
+                fill="none"
+              >
+                <g opacity="0.5">
+                  <path
+                    d="M6.54954 0.0419922L0 5.56543L6.54954 10.9579V6.59153H17.4654V4.40835H6.54954V0.0419922Z"
+                    fill="black"
+                  />
+                </g>
+              </svg>
+            </div>
+          </a>
+          <div class="category-and-date">
+            <div class="date-text"><p>{{post.date_created}}</p></div>
+          </div>
+        </div>
+        <div class="article-content">
+          <h1>{{post.title}}</h1>
+          <div class="article-body">
+            <div class="article-picture-container">
+              <img
+                src="{{post.featured_pic.url}}"
+                class="article-picutre"
+                alt="post.title"
+              />
+            </div>
+            <div class="article-body">
+              <p>{{post.post|safe}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endif%} {% endblock%}
+  </body>
+  {%block scripts%}
+  <script src="{% static 'blogapp/js/script.js' %}"></script>
+  {%endblock%}
+</html>

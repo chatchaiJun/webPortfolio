@@ -1,0 +1,214 @@
+.article-search-bar {
+  margin-top: 117px;
+  margin-bottom: 20px;
+  margin-left: 763px;
+  display: flex;
+  padding: 6px 0px;
+  justify-content: center;
+  align-items: center;
+}
+.article-input {
+  width: 383px;
+  border-radius: 25px;
+  border: none;
+  background-image: url("../images/searchicon.png");
+  background-repeat: no-repeat;
+  background-position: 20px 14px;
+  padding: 12px 20px 12px 40px;
+  /* height: 20px; */
+}
+.article-list-container {
+  margin-top: 0px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.article-list {
+  display: flex;
+  width: 948px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 49px 69px;
+  flex-wrap: wrap;
+}
+.category-container {
+  display: flex;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  background-color: #e8e8e8;
+}
+.tagline {
+  color: #000;
+
+  /* tagline */
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 105%; /* 12.6px */
+}
+.article-preview {
+  display: flex;
+  width: 270px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: -16px;
+}
+.article-preview:hover {
+  border-radius: 12px;
+  box-shadow: 13px 11px 6.3px 0px rgba(0, 0, 0, 0.4);
+}
+.article-img-preivew {
+  display: flex;
+  height: 140px;
+  justify-content: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+  align-items: center;
+  align-self: stretch;
+  width: 270px;
+}
+.article-preview-text {
+  background: #fff;
+  display: flex;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 30px; */
+  align-self: stretch;
+  background-color: rgba(255, 255, 255, 1);
+}
+.article-preview-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Adjust the number of lines to show */
+  -webkit-box-orient: vertical;
+  max-height: 5.5em; /* Adjust based on your font size and line height */
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 60px 0;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  display: block;
+  padding: 8px 12px;
+  color: #636060;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.page-link:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.page-item.active .page-link {
+  background-color: white;
+  color: #fff;
+  border: 1px solid #636060;
+}
+
+.page-link:focus {
+  outline: none;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* article.css or your existing CSS file */
+
+/* Update the styles for the modal and slider */
+#imageSliderModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.image-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80vh; /* Adjust the height as needed */
+    overflow: auto;
+    background-position: center center;
+}
+
+.slider-center {
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    position: relative; /* Add relative positioning */
+}
+
+.slider-item {
+    max-width: 50vw; /* Adjust the max-width as needed */
+    text-align: center;
+}
+
+.slider-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Styles for navigation buttons */
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    border: none;
+    background: none;
+    color: white;
+    z-index: 1;
+    cursor: pointer;
+    outline: none;
+}
+
+.slider-nav-btn:hover {
+    color: #bbb;
+}
+
+#prevBtn {
+    left: 250px;
+}
+
+#nextBtn {
+    right: 250px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 200px;
+    z-index: 1;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
