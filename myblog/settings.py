@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mm9q2o+c9_el_m6r#7(zb2x4eu-(9wkg4qtuggq@ij8_xxmi$%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.226.153.39']
+ALLOWED_HOSTS = ['34.226.153.39','127.0.0.1']
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogapp', # Our app
     'django_summernote',
-    'bleach'
+    'bleach',
+    'storages',
 ]
 
 
@@ -127,21 +128,39 @@ USE_I18N = True
 
 USE_TZ = True
 
+AWS_ACCESS_KEY_ID='AKIAW3AF6HTHLIAUAN6O'
+AWS_SECRET_ACCESS_KEY='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'
+
+AWS_STORAGE_BUCKET_NAME = 'portfolio-us-east-1'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_FILE_OVERWRITE = False
+
+STORAGES = {
+    # Media file (image) management
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# For get static folder
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'blogapp')
-]
-STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'blogapp')
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
